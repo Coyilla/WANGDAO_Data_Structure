@@ -5,7 +5,7 @@
 #include "seq_list.h"
 #include "chapter.h"
 
-bool C2T1_DeleteMin(SeqList *l){
+bool DeleteMin(SeqList *l){
     if(l->length==0){
         return false;
     }
@@ -22,7 +22,7 @@ bool C2T1_DeleteMin(SeqList *l){
 int main(){
     SeqList l=CreateList_D((ElemType []){5, 2, 3, 6, 7, 1, 8, 9, 4},9);
     PrintList_D(l);
-    bool result=C2T1_DeleteMin(&l);
+    bool result=DeleteMin(&l);
     if(result){
         PrintList_D(l);
     }else{

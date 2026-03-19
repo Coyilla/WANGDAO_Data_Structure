@@ -5,7 +5,7 @@
 #include "seq_list.h"
 
 
-void C2T3_RemoveX(SeqList *l,ElemType x){
+void RemoveX(SeqList *l,ElemType x){
 
 }
 

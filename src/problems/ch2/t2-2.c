@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include "seq_list.h"
 
-void C2T2_Reverse(SeqList *l){
+void Reverse(SeqList *l){
 
 }
 

@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include "seq_list.h"
 
-bool C2T1_DeleteMin(SeqList *l){
+bool DeleteMin(SeqList *l){
 
     return true;
 }
