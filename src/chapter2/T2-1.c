@@ -28,6 +28,6 @@ int main(){
     }else{
         return 1;
     }
-    //printf("hello world");
+    printf("hello world\n");
     return 0;
 }
