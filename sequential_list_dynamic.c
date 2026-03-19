@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include "seq_list.h"
 
 //顺序表动态分配
@@ -50,9 +51,26 @@ int LocateElem(SeqList *L,ElemType e){
 }
 
 // 打印
-void PrintList(SeqList *L){
-    for(int i=0;i<L->length;i++){
-        printf("%d ",L->data[i]);
+void PrintList(SeqList L){
+    for(int i=0;i<L.length;i++){
+        printf("%d ",L.data[i]);
+        
     }
     printf("\n");
+}
+
+// 自定义初始化
+SeqList CreateList(ElemType arr[],int n){
+    SeqList l;
+    InitList(&l);
+    if(n>l.MaxSize){
+        ElemType* p=l.data;
+        l.data=(ElemType*)malloc(sizeof(ElemType)*n);
+        free(p);
+    }    
+    for(int i=0;i<n;i++){
+        l.data[i]=arr[i];
+    }
+    
+    return l;
 }
