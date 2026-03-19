@@ -3,31 +3,15 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "seq_list.h"
-#include "chapter.h"
 
 bool C2T1_DeleteMin(SeqList *l){
-    if(l->length==0){
-        return false;
-    }
-    ElemType min_pos=0;
-    for(int i=1;i<l->length;i++){
-        if(l->data[i]<l->data[min_pos]){
-            min_pos=i;
-        }
-    }
-    l->data[min_pos]=l->data[l->length-1];
+
     return true;
 }
 
 int main(){
     SeqList l=CreateList_D((ElemType []){5, 2, 3, 6, 7, 1, 8, 9, 4},9);
     PrintList_D(l);
-    bool result=C2T1_DeleteMin(&l);
-    if(result){
-        PrintList_D(l);
-    }else{
-        return 1;
-    }
-    //printf("hello world");
+
     return 0;
 }
