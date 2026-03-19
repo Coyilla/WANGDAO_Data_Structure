@@ -1,40 +1,34 @@
-# Makefile
-# 编译器
 CC = gcc
-# 编译选项
-CFLAGS = -Wall -g
-# 目标程序名
-TARGET = T1
-# 自动获取所有.c文件
-SRCS = $(wildcard *.c)
-# 生成对应的.o文件
-OBJS = $(SRCS:.c=.o)
+CFLAGS = -Wall -g -I./include
+BUILD_DIR = build
+SRC_DIR = src
 
-# 默认目标
+# 运行的文件名：make run n=chapter2/T1
+n ?= chapter1/T1
+
+# 当前要测试的源文件
+CURRENT_SRC = $(SRC_DIR)/$(n).c
+
+# 所有公共的实现文件（排除掉含有 main 的文件）
+COMMON_SRCS = $(SRC_DIR)/common/*.c 
+# 过滤掉不存在的文件，防止报错
+COMMON_EXIST = $(wildcard $(COMMON_SRCS))
+
+TARGET = $(BUILD_DIR)/program.exe
+
 all: $(TARGET)
 
-# 链接
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS)
+$(TARGET): $(CURRENT_SRC)
+	@if not exist "$(BUILD_DIR)" mkdir "$(BUILD_DIR)"
+	@echo [Linking with Commons] $@
+	$(CC) $(CFLAGS) $(CURRENT_SRC) $(COMMON_EXIST) -o $@
 
-# 编译规则
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+run: all
+	@echo ---------------------------------------
+	@.\$(TARGET)
+	@echo ---------------------------------------
 
-# 运行程序
-run: $(TARGET)
-	./$(TARGET)
-
-# 清理生成的文件
 clean:
-	del *.o $(TARGET).exe 2>nul || rm -f *.o $(TARGET)
+	@if exist $(BUILD_DIR) rmdir /s /q $(BUILD_DIR)
 
-# 显示帮助
-help:
-	@echo "可用命令:"
-	@echo "  make       - 编译程序"
-	@echo "  make run   - 编译并运行"
-	@echo "  make clean - 清理生成的文件"
-	@echo "  make help  - 显示此帮助"
-
-.PHONY: all run clean help
+.PHONY: all run clean

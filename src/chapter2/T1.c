@@ -2,7 +2,8 @@
 // 若顺序表为空，则显示出错信息并退出运行。
 #include <stdio.h>
 #include <stdbool.h>
-#include "./../seq_list.h"
+#include "seq_list.h"
+#include "chapter.h"
 
 bool DeleteMin(SeqList *l){
     if(l->length==0){
@@ -18,3 +19,15 @@ bool DeleteMin(SeqList *l){
     return true;
 }
 
+int main(){
+    SeqList l=CreateList_D((ElemType []){5, 2, 3, 6, 8, 1, 8, 9, 4},9);
+    PrintList_D(l);
+    bool result=DeleteMin(&l);
+    if(result){
+        PrintList_D(l);
+    }else{
+        return 1;
+    }
+    //printf("hello world");
+    return 0;
+}

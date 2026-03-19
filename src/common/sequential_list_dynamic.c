@@ -7,7 +7,7 @@
 
 //顺序表的初始化
 #define InitSize 50
-void InitList(SeqList *L){
+void InitList_D(SeqList *L){
     L->data=(ElemType *)malloc(sizeof(ElemType)*InitSize);
     L->length=0;
     L->MaxSize=InitSize;
@@ -15,7 +15,7 @@ void InitList(SeqList *L){
 
 //插入
 //1<=i<=L.length
-bool ListInsert(SeqList *L,int i,ElemType e){
+bool ListInsert_D(SeqList *L,int i,ElemType e){
     if(i<1||i>L->length+1)
         return false;
     if(L->length+1>L->MaxSize)
@@ -30,7 +30,7 @@ bool ListInsert(SeqList *L,int i,ElemType e){
 
 //删除
 //1<=i<=L.length
-bool ListDelete(SeqList *L,int i){
+bool ListDelete_D(SeqList *L,int i){
     if(i<1||i>L->length)
         return false;
     for(int j=i-1;j<L->length-1;j++){
@@ -42,7 +42,7 @@ bool ListDelete(SeqList *L,int i){
 
 //按值查找（顺序查找）
 //返回位序
-int LocateElem(SeqList *L,ElemType e){
+int LocateElem_D(SeqList *L,ElemType e){
     for(int i=0;i<L->length;i++){
         if(L->data[i]==e)
             return i+1;
@@ -51,7 +51,7 @@ int LocateElem(SeqList *L,ElemType e){
 }
 
 // 打印
-void PrintList(SeqList L){
+void PrintList_D(SeqList L){
     for(int i=0;i<L.length;i++){
         printf("%d ",L.data[i]);
         
@@ -60,9 +60,9 @@ void PrintList(SeqList L){
 }
 
 // 自定义初始化
-SeqList CreateList(ElemType arr[],int n){
+SeqList CreateList_D(ElemType arr[],int n){
     SeqList l;
-    InitList(&l);
+    InitList_D(&l);
     if(n>l.MaxSize){
         ElemType* p=l.data;
         l.data=(ElemType*)malloc(sizeof(ElemType)*n);
@@ -71,6 +71,7 @@ SeqList CreateList(ElemType arr[],int n){
     for(int i=0;i<n;i++){
         l.data[i]=arr[i];
     }
+    l.length=n;
     
     return l;
 }

@@ -7,13 +7,13 @@
 
 //顺序表的初始化
 //SqList L;
-void InitList(SqList *L){
+void InitList_S(SqList *L){
     L->length=0;
 }
 
 //插入
 //1<=i<=L.length
-bool ListInsert(SqList *L,int i,ElemType e){
+bool ListInsert_S(SqList *L,int i,ElemType e){
     if(i<1||i>L->length+1)
         return false;
     if(L->length+1>MaxSize)
@@ -28,7 +28,7 @@ bool ListInsert(SqList *L,int i,ElemType e){
 
 //删除
 //1<=i<=L.length
-bool ListDelete(SqList *L,int i){
+bool ListDelete_S(SqList *L,int i){
     if(i<1||i>L->length)
         return false;
     for(int j=i-1;j<L->length-1;j++){
@@ -40,7 +40,7 @@ bool ListDelete(SqList *L,int i){
 
 //按值查找（顺序查找）
 //返回位序
-int LocateElem(SqList *L,ElemType e){
+int LocateElem_S(SqList *L,ElemType e){
     for(int i=0;i<L->length;i++){
         if(L->data[i]==e)
             return i+1;
@@ -49,7 +49,7 @@ int LocateElem(SqList *L,ElemType e){
 }
 
 // 打印
-void PrintList(SqList L){
+void PrintList_S(SqList L){
     for(int i=0;i<L.length;i++){
         printf("%d ",L.data[i]);
     }
