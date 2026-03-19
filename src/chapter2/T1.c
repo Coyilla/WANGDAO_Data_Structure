@@ -20,7 +20,7 @@ bool DeleteMin(SeqList *l){
 }
 
 int main(){
-    SeqList l=CreateList_D((ElemType []){5, 2, 3, 6, 8, 1, 8, 9, 4},9);
+    SeqList l=CreateList_D((ElemType []){5, 2, 3, 6, 7, 1, 8, 9, 4},9);
     PrintList_D(l);
     bool result=DeleteMin(&l);
     if(result){
