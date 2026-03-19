@@ -13,7 +13,7 @@ void InitList(SqList *L){
 
 //插入
 //1<=i<=L.length
-bool ListInsert(SeqList *L,int i,ElemType e){
+bool ListInsert(SqList *L,int i,ElemType e){
     if(i<1||i>L->length+1)
         return false;
     if(L->length+1>MaxSize)
@@ -28,7 +28,7 @@ bool ListInsert(SeqList *L,int i,ElemType e){
 
 //删除
 //1<=i<=L.length
-bool ListDelete(SeqList *L,int i){
+bool ListDelete(SqList *L,int i){
     if(i<1||i>L->length)
         return false;
     for(int j=i-1;j<L->length-1;j++){
@@ -40,7 +40,7 @@ bool ListDelete(SeqList *L,int i){
 
 //按值查找（顺序查找）
 //返回位序
-int LocateElem(SeqList *L,ElemType e){
+int LocateElem(SqList *L,ElemType e){
     for(int i=0;i<L->length;i++){
         if(L->data[i]==e)
             return i+1;
