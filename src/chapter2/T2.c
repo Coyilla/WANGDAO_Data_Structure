@@ -4,7 +4,7 @@
 #include "seq_list.h"
 #include "chapter.h"
 
-void Reverse(SeqList *l){
+void C2T2_Reverse(SeqList *l){
     for(int i=0;i<l->length/2;i++){
         ElemType k=l->data[i];
         l->data[i]=l->data[l->length-i-1];

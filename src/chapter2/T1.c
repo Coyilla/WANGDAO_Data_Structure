@@ -5,7 +5,7 @@
 #include "seq_list.h"
 #include "chapter.h"
 
-bool DeleteMin(SeqList *l){
+bool C2T1_DeleteMin(SeqList *l){
     if(l->length==0){
         return false;
     }
