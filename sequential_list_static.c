@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "seq_list.h"
 #include "sq_list.h"
 
 //顺序表静态分配
@@ -46,4 +45,12 @@ int LocateElem(SqList *L,ElemType e){
             return i+1;
     }
     return 0;
+}
+
+// 打印
+void PrintList(SqList *L){
+    for(int i=0;i<L->length;i++){
+        printf("%d ",L->data[i]);
+    }
+    printf("\n");
 }
